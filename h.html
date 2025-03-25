@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scam Awareness Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.game-container {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+.header {
+  margin-bottom: 20px;
+}
+.btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.color-btn {
+  background-color: #ddd;
+}
+.big-small {
+  background-color: #f1f1f1;
+}
+#deposit {
+  background-color: #28a745;
+  color: #fff;
+}
+#withdraw {
+  background-color: #dc3545;
+  color: #fff;
+}
+.result-container {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.footer {
+  margin-top: 20px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <header class="header">
+        <h1>Daman Style Scam Awareness Game</h1>
+        <div class="wallet-balance">
+          💰 Wallet Balance: ₹<span id="balance">1000</span>
+        </div>
+        <button class="btn" id="deposit">Deposit</button>
+        <button class="btn" id="withdraw">Withdraw</button>
+      </header>
+
+      <section class="game-section">
+        <div class="game-options">
+          <button class="btn color-btn" id="green" onclick="playColor('green')">
+            🟢 Green (x2)
+          </button>
+          <button
+            class="btn color-btn"
+            id="violet"
+            onclick="playColor('violet')"
+          >
+            🟣 Violet (x5)
+          </button>
+          <button class="btn color-btn" id="red" onclick="playColor('red')">
+            🔴 Red (x2)
+          </button>
+        </div>
+
+        <div class="number-options">
+          <button class="btn big-small" id="big" onclick="playNumber('big')">
+            📈 Big (5-9)
+          </button>
+          <button
+            class="btn big-small"
+            id="small"
+            onclick="playNumber('small')"
+          >
+            📉 Small (0-4)
+          </button>
+        </div>
+
+        <div class="result-container">
+          <p>Time Remaining: <span id="timer">30</span> sec</p>
+          <p>Result: <span id="result">--</span></p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <button class="btn" id="quiz">Take Quiz</button>
+        <p>⚠️ Note: This game demonstrates how gambling scams work.</p>
+      </footer>
+    </div>
+
+    <script>
+      let balance = 1000;
+      let timer;
+
+      function playColor(choice) {
+        const result = getManipulatedResult(["green", "violet", "red"]);
+        updateResult(result, choice);
+      }
+
+      function playNumber(choice) {
+        const result = getManipulatedResult(["big", "small"]);
+        updateResult(result, choice);
+      }
+
+      function getManipulatedResult(options) {
+        const randomNum = Math.random();
+        if (randomNum < 0.7) {
+          return options[Math.floor(Math.random() * options.length)]; // Pehle jeet ka illusion
+        } else {
+          return "loss"; // Baad me haar fix
+        }
+      }
+
+      function updateResult(result, choice) {
+        if (result === choice) {
+          balance += 200;
+          document.getElementById(
+            "result"
+          ).innerText = `You Win! 🎉 Result: ${result}`;
+        } else {
+          balance -= 100;
+          document.getElementById(
+            "result"
+          ).innerText = `You Lose! ❌ Result: ${result}`;
+        }
+        document.getElementById("balance").innerText = balance;
+        checkGameOver();
+      }
+
+      function checkGameOver() {
+        if (balance <= 0) {
+          alert("Game Over! You have no balance left. This is how scams work!");
+          resetGame();
+        }
+      }
+
+      function resetGame() {
+        balance = 1000;
+        document.getElementById("balance").innerText = balance;
+        document.getElementById("result").innerText = "--";
+      }
+    </script>
+  </body>
+</html>
