@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.game-container {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+.header {
+  margin-bottom: 20px;
+}
+.btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.color-btn {
+  background-color: #ddd;
+}
+.big-small {
+  background-color: #f1f1f1;
+}
+#deposit {
+  background-color: #28a745;
+  color: #fff;
+}
+#withdraw {
+  background-color: #dc3545;
+  color: #fff;
+}
+.result-container {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.footer {
+  margin-top: 20px;
+}
