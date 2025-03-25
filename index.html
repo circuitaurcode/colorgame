@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daman Clone - Scam Awareness</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-4">
+      <!-- Header -->
+      <div class="text-center mb-4">
+        <h1 class="text-2xl font-bold text-red-500">Daman Clone</h1>
+        <p class="text-gray-500">
+          Wallet balance: <span id="balance" class="font-semibold">₹1000</span>
+        </p>
+      </div>
+
+      <!-- ✅ Timer Display -->
+      <p id="result" class="text-xl font-bold text-blue-500 text-center mb-4">
+        Game starting in 10 seconds...
+      </p>
+
+      <!-- Game Modes -->
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <button
+          class="bg-gray-200 px-3 py-2 text-sm rounded"
+          onclick="playColor('green')"
+        >
+          Green
+        </button>
+        <button
+          class="bg-purple-200 px-3 py-2 text-sm rounded"
+          onclick="playColor('violet')"
+        >
+          Violet
+        </button>
+        <button
+          class="bg-red-200 px-3 py-2 text-sm rounded"
+          onclick="playColor('red')"
+        >
+          Red
+        </button>
+        <button
+          class="bg-blue-200 px-3 py-2 text-sm rounded"
+          onclick="playNumber('random')"
+        >
+          Random
+        </button>
+      </div>
+
+      <!-- Big/Small Options -->
+      <div class="flex justify-between mb-4">
+        <button
+          class="bg-yellow-200 px-4 py-2 rounded w-1/2 mr-1"
+          onclick="playNumber('big')"
+        >
+          Big
+        </button>
+        <button
+          class="bg-blue-200 px-4 py-2 rounded w-1/2 ml-1"
+          onclick="playNumber('small')"
+        >
+          Small
+        </button>
+      </div>
+
+      <!-- Game History -->
+      <div class="text-center mb-4">
+        <h2 class="text-lg font-semibold text-gray-700">Game History</h2>
+        <table
+          class="table-auto w-full text-sm border-collapse border border-gray-300"
+        >
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="p-2 border">Period</th>
+              <th class="p-2 border">Number</th>
+              <th class="p-2 border">Big/Small</th>
+              <th class="p-2 border">Color</th>
+            </tr>
+          </thead>
+          <tbody id="history"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ✅ Game.js Include -->
+    <script src="assets/js/game.js"></script>
+  </body>
+</html>
